@@ -1,3 +1,4 @@
+@charset "UTF-8";
 *,
 *::before,
 *::after {
@@ -18,6 +19,7 @@ section {
   height: 300px;
   font-size: 16px;
   overflow: scroll;
+  background: rgb(135, 190, 135);
 }
 .question-01.scroll-control {
   overflow: hidden;
@@ -59,6 +61,7 @@ section {
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
+  background: rgb(135, 190, 135);
 }
 .question-02 p {
   margin-bottom: 10px;
@@ -82,27 +85,117 @@ section {
   height: 400px;
   padding: 10px;
   background: rgb(141, 196, 141);
+  text-align: center;
+}
+.question-03 .set-count {
+  text-align: center;
+  margin-bottom: 30px;
+}
+.question-03 .set-count label,
+.question-03 .set-count input {
+  display: inline-block;
+  padding: 5px;
 }
 .question-03 .image-gallery {
   display: flex;
-  justify-content: space-between;
-}
-.question-03 .image-gallery .image-content {
-  display: flex;
   justify-content: center;
-  align-items: center;
-  width: 200px;
-  height: 200px;
-  margin: 10px;
-  background: rgb(158, 156, 146);
+  margin-bottom: 30px;
 }
-
-.i-create {
+.question-03 .image-gallery .i-create {
+  margin: 0 20px;
   padding: 10px;
   display: inline-block;
   background: chocolate;
 }
-
-.i-setimage {
+.question-03 .image-gallery .i-create .i-setimage {
   border-radius: 50%;
+}
+.question-03 button {
+  padding: 10px;
+  margin: 0 10px;
+}
+
+.question-04 {
+  background: rgb(167, 207, 169);
+  height: 300px;
+  position: relative;
+}
+.question-04 h1 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+.question-04 .content {
+  width: 90%;
+  background: gray;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 20px;
+  padding: 20px 0;
+}
+.question-04 .content label,
+.question-04 .content input {
+  display: inline-block;
+  margin: 5px 0;
+  padding: 5px;
+}
+.question-04 .content label:focus,
+.question-04 .content input:focus {
+  outline: none;
+  /* 移除預設的聚焦時輪廓效果 */
+}
+.question-04 .content button {
+  padding: 5px;
+}
+
+.question-05 {
+  width: 400px;
+  height: 250px;
+  background: rgb(135, 190, 135);
+  overflow: hidden;
+}
+.question-05 .qs {
+  height: 250px;
+  padding: 10px;
+}
+.question-05 h1 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+.question-05 p {
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  font-size: 20px;
+}
+.question-05 button {
+  display: block;
+  margin: 0 auto;
+  padding: 5px;
+}
+.question-05 h2 {
+  margin-bottom: 30px;
+}
+.question-05 .finaly {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.question-05 .finaly p {
+  margin-bottom: 0px;
+}
+.question-05 .finaly input {
+  padding: 2px 5px;
+  margin-bottom: 10px;
+}
+.question-05 .show {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }/*# sourceMappingURL=第六週.css.map */

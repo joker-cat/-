@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <!-- <section class="question-01">
+    <section class="question-01">
         <div class="lorem-content">
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque incidunt, labore iusto cum sunt recusandae
                 consectetur sequi, quasi tempore molestiae id soluta ipsam iure velit? Ipsam aliquam nisi inventore
@@ -37,10 +37,12 @@
         </form>
         <ul class="books-list">
         </ul>
-    </section> -->
+    </section>
     <section class="question-03">
-        <label>最大卡片數量 : </label><input class="img-count" type="number" min="1" value="5"><br/>
-        <label>初始卡片位置 : </label><input class="img-start" type="number" min="1" value="2">
+        <div class="set-count">
+            <label>最大卡片數量 : </label><input class="img-count" type="number" min="1" value="5"><br/>
+            <label>初始卡片位置 : </label><input class="img-start" type="number" min="1" value="1">
+        </div>
         <div class="image-gallery">
             <div class="i-create">
                 <img class="i-setimage" src="" alt="">
@@ -48,9 +50,117 @@
                 <p></p>
             </div>
         </div>
-        <button>上一張</button>
-        <button>下一張</button>
+        <button class="previous-image">上一張</button>
+        <button class="next-image">下一張</button>
     </section>
+    <section class="question-04">
+        <h1>步驟表單</h1>
+        <form>
+            <!-- 01 -->
+            <div class="content">
+                <h2>步驟一</h2>
+                <hr>
+                <label>
+                    電子信箱
+                    <input type="email" name="email" placeholder="請輸入電子信箱" pattern="^[^\s@]+@[^\s@]+\.[^\s@]+$"
+                        required>
+                </label>
+                <label>
+                    密碼
+                    <input type="password" name="psd" placeholder="請輸入 6 - 10 位密碼" minlength="6" maxlength="10"
+                        required>
+                </label>
+                <div>
+                    <button type="button" class="next-page">下一步</button>
+                </div>
+            </div>
+
+            <!-- 02 -->
+            <div class="content">
+                <h2>步驟二</h2>
+                <hr>
+                <label>
+                    地址
+                    <input type="text" name="address" placeholder="請輸入您的地址" required>
+                </label>
+                <label>
+                    城市
+                    <input type="text" name="city" placeholder="請輸入您的城市" required>
+                </label>
+                <div>
+                    <button type="button" class="previous-page">上一步</button>
+                    <button type="button" class="next-page">下一步</button>
+                </div>
+            </div>
+
+            <!-- 03 -->
+            <div class="content">
+                <h2>步驟三</h2>
+                <hr>
+                <label>
+                    名稱
+                    <input type="text" name="name" placeholder="請輸入您的名稱" required>
+                </label>
+                <label>
+                    電話
+                    <input type="text" name="phone" maxlength="10" minlength="10" placeholder="請輸入您的電話10位數"
+                        oninput="this.value=this.value.replace(/[^0-9]/g,'');" required>
+                </label>
+                <div>
+                    <button type="button" data-prev class="previous-page">上一步</button>
+                    <button type="button" data-next class="next-page">下一步</button>
+                </div>
+
+            </div>
+            <div class="content" style="height: 220px;;display: flex;justify-content: center;align-items: center;">
+                <p>填寫完成</p>
+            </div>
+        </form>
+    </section>
+
+    <section class="question-05">
+        <!-- Intro -->
+        <div class="introduce-content" style="height: 250px;">
+            <h1>網頁性格測驗</h1>
+            <p>製作網頁是一個多種領域發揮的舞台，助教製作了一款簡易的網頁性格測驗，來測試看看同學們對網頁不同領域的喜好程度～</p>
+            <button class="start-test">開始測驗～</button>
+        </div>
+        <!-- Test -->
+        <div class="question-set">
+            <div class="qs">
+                <h2>比起現有的模板，你更喜歡自己親手刻出來的成就感嗎</h2>
+                <input type="radio" name="qs1" id="a" value='{"thing":"html","score":"40"}'><label for="a">不一定，時間緊迫我會拿現成的</label><br/>
+                <input type="radio" name="qs1" id="b" value='{"thing":"html","score":"50"}'><label for="b">沒錯，我喜歡自己刻出來</label><br/>
+                <input type="radio" name="qs1" id="c" value='{"thing":"html","score":"30"}'><label for="c">都行，沒有一定有結果就好</label>
+            </div>
+            <div class="qs">
+                <h2>對於CSS框架，你是如何決定是否適用它</h2>
+                <input type="radio" name="qs2" id="d" value='{"thing":"css","score":"70"}'><label for="d">當下心血來潮會嘗試看看</label><br/>
+                <input type="radio" name="qs2" id="e" value='{"thing":"css","score":"80"}'><label for="e">不一定，要看設計稿</label><br/>
+                <input type="radio" name="qs2" id="f" value='{"thing":"css","score":"30"}'><label for="f">如果不熟的情況，我會選擇手打比較快</label>
+            </div>
+            <div class="qs">
+                <h2>在目前JS框架盛行的時代，你是否依然覺得原生JS的底子比框架更重要</h2>
+                <input type="radio" name="qs3" id="g" value='{"thing":"js","score":"60"}'><label for="g">對，萬物始於一切根源</label><br/>
+                <input type="radio" name="qs3" id="h" value='{"thing":"js","score":"90"}'><label for="h">還好，我覺得要兩者平衡</label><br/>
+                <input type="radio" name="qs3" id="i" value='{"thing":"js","score":"10"}'><label for="i">不覺得，哪個盛行我就學哪個</label>
+            </div>
+            <div class="qs finaly">
+                <p>請輸入您的名稱</p>
+                <input type="text" class="user-name">
+                <button class="finish-btn">觀看結果</button>
+            </div>
+            <div class="qs show">
+                <p>結果</p>
+                <p class="text-content"></p>
+                <button class="again-btn">再測一次</button>
+            </div>
+        </div>
+
+        <!-- Result -->
+        <div></div>
+    </section>
+
     <script src="./第六週.js"></script>
 </body>
 
