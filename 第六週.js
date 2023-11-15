@@ -44,8 +44,13 @@ let books = [{
 userInput.addEventListener('keyup', filterBooks);
 function filterBooks(event) {
     if (/^[a-zA-Z0-9]$/.test(event.key) || event.key === "Backspace") {
+        if (userInput.value.trim() === "") {
+            showBooks(books);
+            return;
+        }
         let value = userInput.value.toLowerCase();
         let isFilter = books.filter(book => book.name.toLowerCase().includes(value));
+        console.log(isFilter);
         isFilter.length === 0 ? showBooks(books) : filterKeyPoint(isFilter);
     }
 }
@@ -92,52 +97,47 @@ let previousImage = document.querySelector('.previous-image');
 let nextImage = document.querySelector('.next-image');
 previousImage.addEventListener('click', settingCount);
 nextImage.addEventListener('click', settingCount);
-imgCount.addEventListener('input', continueRun);
-imgStart.addEventListener('input', continueRun);
+imgCount.addEventListener('keyup', continueRun);
+imgStart.addEventListener('keyup', continueRun);
 settingCount();
 function settingCount(e) {
     e === undefined ? continueRun() : whichBtn(e);
     function whichBtn(e) {
         console.log(e);
         let e_target = e.target.classList[0];
-        let mathValue = parseInt(imgStart.value);
+        let mathValue = parseInt(parseInt(imgStart.value));
         e_target === "next-image" ? previous(mathValue) : next(mathValue);
-        console.log(imgStart.value);
+        console.log(parseInt(imgStart.value));
     }
 
     function previous(mathValue) {
-        if (imgStart.value < imgCount.value) {
+        console.log(parseInt(imgStart.value), parseInt(imgCount.value));
+        if (parseInt(imgStart.value) < parseInt(imgCount.value)) {
             imgStart.value = (mathValue += 1);
-            console.log(imgStart.value);
             continueRun();
         } else {
             console.log("超過");
         }
-
-
     }
     function next(mathValue) {
         mathValue > 1 ? imgStart.value = (mathValue -= 1) : '';
-        console.log(imgStart.value);
         continueRun();
     }
 }
 
 function continueRun() {
-    if (imgCount.value < imgStart.value) {
-        imgStart.value = imgCount.value;
-    }
+    parseInt(imgCount.value) < parseInt(imgStart.value) ? imgStart.value = 1 : null;
     let str = '';
-    if (imgCount.value >= 1) {
+    if (parseInt(imgCount.value) >= 1) {
         imageGallery.innerHTML = "";
 
-        let newArray = Array.from({ length: imgCount.value - 0 }, (_, index) => ({
+        let newArray = Array.from({ length: parseInt(imgCount.value) - 0 }, (_, index) => ({
             "id": index,
             "src": `https://picsum.photos/id/${index * 10}/150/150`,
             "name": `Person #${(index + 1 <= 9) ? "0" + (index + 1) : +index + 1}`,
             "depiction": `lorem picture ${index + 1}`
         }));
-        for (let i = +imgStart.value; i <= +imgStart.value + 1; i++) {
+        for (let i = +parseInt(imgStart.value); i <= +parseInt(imgStart.value) + 1; i++) {
             console.log(i > newArray.length);
             if (!(i > newArray.length)) {
                 str += `
@@ -222,10 +222,10 @@ finishBtn.addEventListener('click', (e) => {
         nextQs(e);
     }
 });
-againBtn.addEventListener('click',()=>{
-    score={};
+againBtn.addEventListener('click', () => {
+    score = {};
     nowQS = 0;
-    radioSet.forEach(function(button) {
+    radioSet.forEach(function (button) {
         button.checked = false;
     });
     questionSet.style.transform = `translateY(${-250 * nowQS}px)`;
@@ -244,12 +244,3 @@ function nextQs(e) {
         introduceContent.style.display = "none" :
         questionSet.style.transform = `translateY(${-250 * nowQS}px)`;
 }
-
-
-
-
-
-
-
-
-
